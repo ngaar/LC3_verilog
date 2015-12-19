@@ -1,0 +1,58 @@
+Due date: 12/4/2015 @ 11:59pm
+
+Assignment:
+~~~~~~~~~~~
+
+- Implement your proposed project
+- Finish REPORT.txt
+
+  The instructions we implemented:
+        OPCODE     
+      15 14 13 12|11 10 9 8 7 6 5 4 3 2 1 0
+  ADD+ 0  0  0 1 |   DR  | SR1 |0|0 0|SR2  
+  ADD+ 0  0  0 1 |   DR  | SR1 |1|immed val
+  AND+ 0  1  0 1 |   DR  | SR1 |0|0 0|SR2 
+  AND+ 0  1  0 1 |   DR  | SR1 |1|immed val
+  JMP  1  1  0 0 | 0 0  0|Base |0 0 0 0 0 0
+  LD+  0  0  1 0 |   DR  | PCoffset9 bit number
+  LDI+ 0  1  1 0 |   DR  | PCoffset9 bit number
+  LDR+ 0  1  1 0 |   DR  |Base | offset6 bit 
+  LEA  1  1  1 0 |   DR  |  PCoffset9 bit
+  NOT+ 1  0  0 1 |   DR  | SR  |1 1 1 1 1 1
+  ST   0  0  1 1 |   SR  | PCoffset9 bit number
+  STI  1  0  1 1 |   SR  | PCoffset9 bit number
+  STR  0  1  1 1 |   SR  | BASE |  offset6 bit
+  MOV  1  1  0 1 |   DR  | 9 bit bit imme number
+
+ ADD: dr = sr1 + sr2
+ ADD: dr = sr1 + immed_val
+ AND: dr = sr1 && sr2
+ AND: dr = sr1 && immed_val
+ JMP: PC = baseR
+ LD:  dr = mem[pc + offset]
+ LDI: dr = mem[mem[baser + offset]]
+ LDR: dr = mem[baser + offset]
+ LEA: dr = pc + offset
+ NOT: dr = ~sr
+ ST : mem[pc + offset] = sr
+ STI: mem[mem[pc+ offset]] = sr
+ STR: mem[baser + offset] = sr
+ MOV: dr = 9 bit offset  
+
+ 
+ DR: Destination register
+ SR1: Source Register
+ SR2: Source Register
+ PCoffset9 : indicates the 9 bit number + PC
+ PCoffset6 : indicated the 6 bit number + PC
+ BASE: register value (base register) 
+
+- Running instructions (concrete and concise):
+
+    For example:
+
+        - make clean
+        - make clean test
+        - make clean test should run our whole test suite
+
+
